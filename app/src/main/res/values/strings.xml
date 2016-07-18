@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Triangle Length Finder</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="RIGHT_TRIANGLE_MENU">com.julio.trianglelengthfinder.action.RightTriangle</string>
+    <string name="RIGHT_TRIANGLE_Base">com.julio.trianglelengthfinder.action.RightTriangleData</string>
+</resources>
