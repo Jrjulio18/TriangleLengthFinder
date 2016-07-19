@@ -11,20 +11,23 @@ import android.widget.TextView;
  * Created by ACER on 7/15/2016.
  */
 public class RightTriangleData extends AppCompatActivity {
+    static int chooser = 0;
     @Override
+
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.right_triangle_data);
 
         Bundle extras = getIntent().getExtras();
-       // View myview = new View(this);
+
         String key = extras.getString("key");
         if (key.equals("BF")) {
             TextView hypoText = (TextView) findViewById(R.id.firstText);
             hypoText.setText("Hypotenuse:");
             TextView heightText = (TextView) findViewById(R.id.secondText);
             heightText.setText("Height:");
-           // sendMessage(myview,1);
+            chooser =1;
+
             //The key argument here must match that used in the other activity
         }
 //Second Option
@@ -33,7 +36,7 @@ public class RightTriangleData extends AppCompatActivity {
             hypoText.setText("Hypotenuse:");
             TextView heightText = (TextView) findViewById(R.id.secondText);
             heightText.setText("Base:");
-          // sendMessage(myview,1);
+            chooser =1;
             //The key argument here must match that used in the other activity
         }
 
@@ -42,6 +45,7 @@ public class RightTriangleData extends AppCompatActivity {
             hypoText.setText("Base:");
             TextView heightText = (TextView) findViewById(R.id.secondText);
             heightText.setText("Height:");
+            chooser =2;
             //The key argument here must match that used in the other activity
         }
 
@@ -62,11 +66,18 @@ public class RightTriangleData extends AppCompatActivity {
                 EditText txtTwo = (EditText) findViewById(R.id.secondData);
                 Double dataTwo =Double.parseDouble(txtTwo.getText().toString());
 
-              //  if (number == 1) {
+                if (chooser == 1) {
                     Double result = Math.sqrt(Math.pow(dataOne,2) - Math.pow(dataTwo,2));
                     TextView textViewResult = (TextView) findViewById(R.id.result);
                     textViewResult.setText(Double.toString(result));
-               // }
+
+                }
+                if (chooser == 2) {
+                    Double result = Math.sqrt(Math.pow(dataOne,2) + Math.pow(dataTwo,2));
+                    TextView textViewResult = (TextView) findViewById(R.id.result);
+                    textViewResult.setText(Double.toString(result));
+
+                }
             }
         }
     }
