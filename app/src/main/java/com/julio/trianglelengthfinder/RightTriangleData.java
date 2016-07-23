@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by ACER on 7/15/2016.
  */
@@ -49,13 +51,6 @@ public class RightTriangleData extends AppCompatActivity {
             //The key argument here must match that used in the other activity
         }
 
-        if (key.equals("AF")) {
-            TextView hypoText = (TextView) findViewById(R.id.firstText);
-            hypoText.setText("Hypotenuse:");
-            TextView heightText = (TextView) findViewById(R.id.secondText);
-            heightText.setText("Height:");
-            //The key argument here must match that used in the other activity
-        }
     }
 
     public void sendMessage(View view) {
@@ -67,15 +62,26 @@ public class RightTriangleData extends AppCompatActivity {
                 Double dataTwo =Double.parseDouble(txtTwo.getText().toString());
 
                 if (chooser == 1) {
-                    Double result = Math.sqrt(Math.pow(dataOne,2) - Math.pow(dataTwo,2));
-                    TextView textViewResult = (TextView) findViewById(R.id.result);
-                    textViewResult.setText(Double.toString(result));
+                    if(dataOne <= dataTwo){
+                        TextView textViewResult = (TextView) findViewById(R.id.result);
+                        textViewResult.setText("Unavailable Data");
+
+                    }
+                    else {
+                        Double result = Math.sqrt(Math.pow(dataOne, 2) - Math.pow(dataTwo, 2));
+                        TextView textViewResult = (TextView) findViewById(R.id.result);
+                        DecimalFormat df = new DecimalFormat("#.####");
+                        Double trimDouble = Double.parseDouble(df.format(result));
+                        textViewResult.setText(Double.toString(trimDouble));
+                    }
 
                 }
                 if (chooser == 2) {
                     Double result = Math.sqrt(Math.pow(dataOne,2) + Math.pow(dataTwo,2));
                     TextView textViewResult = (TextView) findViewById(R.id.result);
-                    textViewResult.setText(Double.toString(result));
+                    DecimalFormat df = new DecimalFormat("#.####");
+                    Double trimDouble = Double.parseDouble(df.format(result));
+                    textViewResult.setText(Double.toString(trimDouble));
 
                 }
             }

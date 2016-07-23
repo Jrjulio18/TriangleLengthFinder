@@ -36,12 +36,6 @@ public class RightTriangleMenu extends AppCompatActivity {
                 startActivity(intent);
                 break;
             }
-            case R.id.AngleFinderButton:{
-                Intent intent = new Intent(this,RightTriangleData.class);
-                intent.putExtra("key","AF");
-                startActivity(intent);
-                break;
-            }
         }
     }
 }

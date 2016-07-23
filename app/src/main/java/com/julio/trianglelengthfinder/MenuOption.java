@@ -13,8 +13,7 @@ public class MenuOption extends AppCompatActivity {
         setContentView(R.layout.activity_menu_option);
 
 
-    }
-    public void sendMessage(View view){
+    }public void sendMessage(View view){
         switch (view.getId()){
 
             case R.id.RightTriangleOption:{
@@ -22,7 +21,18 @@ public class MenuOption extends AppCompatActivity {
                 startActivity(intent);
                 break;
             }
+            case R.id.equilateralTriangleOption:{
+                Intent intent = new Intent(this,IsocelesTriangleMenu.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.IsocelesTriangleOption:{
+                Intent intent = new Intent(this,IsoMenu.class);
+                startActivity(intent);
+                break;
+            }
         }
     }
+
 
 }

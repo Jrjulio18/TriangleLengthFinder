@@ -9,7 +9,7 @@
         android:text="Find Base"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="0dp"
-        android:id="@+id/baseFinderButton"
+        android:id="@+id/baseFinderButtonIso"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:onClick="sendMessage"/>
@@ -20,22 +20,22 @@
         android:text="Find Height"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="0dp"
-        android:id="@+id/HeightFinderButton"
+        android:id="@+id/HeightFinderButtonIso"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:onClick="sendMessage"/>
 
     <Button
-    android:layout_width="240dp"
-    android:layout_height="wrap_content"
-    android:text="Find Hypotenuse"
-    android:layout_marginTop="25dp"
-    android:layout_marginLeft="0dp"
-    android:id="@+id/HypoFinderButton"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="Find Equal Sides"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="0dp"
+        android:id="@+id/EqualButtonIso"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"
         android:onClick="sendMessage"
-   />
+        />
 
 
 </LinearLayout>

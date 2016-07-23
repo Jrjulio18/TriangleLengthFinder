@@ -8,26 +8,48 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuOption">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".MenuOption" />
         <activity android:name=".RightTriangleMenu">
-        <intent-filter>
-            <action android:name="android.intent.action.RightTriangle" />
-            <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
-            </activity>
-        <activity android:name=".RightTriangleData">
             <intent-filter>
-                <action android:name="android.intent.action.RightTriangleData" />
+                <action android:name="android.intent.action.RightTriangle" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".RightTriangleData">
+            <intent-filter>
+                <action android:name="android.intent.action.RightTriangleData" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".IsocelesTriangleMenu">
+            <intent-filter>
+                <action android:name="android.intent.action.EquilateralTriangleData" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".IsoMenu">
+        <action android:name="android.intent.action.IsocelesTriangleMenu" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
+
+        <activity android:name=".IsocelesDataActivity">
+            <action android:name="android.intent.action.IsocelesTriangleData" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+        </activity>
+
     </application>
 
 </manifest>
