@@ -10,32 +10,7 @@
     tools:context="com.julio.trianglelengthfinder.IsocelesDataActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="105dp"
-        android:textSize="30sp"
-        android:id="@+id/isoFirstText"
-        android:layout_gravity="left|top" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="-80dp"
-        android:textSize="30sp"
-        android:id="@+id/isoSecondText"
-        android:layout_gravity="left|center_vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginTop="-35dp"
-        android:textSize="30sp"
-        android:id="@+id/isoThirdText"
-        android:layout_gravity="left|center_vertical" />
 
     <EditText
         android:layout_width="150dp"
@@ -45,6 +20,7 @@
         android:layout_marginLeft="50dp"
         android:textSize="30sp"
         android:ems="10"
+        android:visibility="invisible"
         android:id="@+id/isoFirstData"
         android:layout_gravity="center_horizontal|top" />
 
@@ -56,6 +32,7 @@
         android:layout_marginLeft="50dp"
         android:textSize="30sp"
         android:ems="10"
+        android:visibility="invisible"
         android:id="@+id/isoSecondData"
         android:layout_gravity="center" />
 
@@ -64,9 +41,10 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:layout_marginTop="-35dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="100dp"
         android:textSize="30sp"
         android:ems="10"
+        android:visibility="invisible"
         android:id="@+id/isoThirdData"
         android:layout_gravity="center" />
 
@@ -101,6 +79,56 @@
         android:id="@+id/isoResultData"
         android:textStyle="bold"
         />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="105dp"
+        android:textSize="30sp"
+        android:text="Height:"
+        android:onClick="checkOne"
+        android:id="@+id/checkBoxHeight"
+        android:layout_gravity="left|top" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-75dp"
+        android:textSize="30sp"
+        android:text="Base:"
+        android:onClick="checkOne"
+        android:id="@+id/checkBoxBase"
+        android:layout_gravity="left|center_vertical" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-35dp"
+        android:textSize="30sp"
+        android:text="Angle of Base:"
+        android:onClick="checkOne"
+        android:id="@+id/checkBoxAngle"
+        android:layout_gravity="left|center_vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-115dp"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        android:id="@+id/textViewLeg"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@color/abc_input_method_navigation_guard" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-75dp"
+        android:visibility="invisible"
+        android:textSize="30sp"
+        android:id="@+id/textViewBase"
+        android:layout_gravity="left|center_vertical"
+        android:textColor="@color/abc_input_method_navigation_guard" />
 
 
 </FrameLayout>

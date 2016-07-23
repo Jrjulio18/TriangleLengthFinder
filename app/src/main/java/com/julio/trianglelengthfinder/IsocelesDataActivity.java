@@ -3,6 +3,7 @@ package com.julio.trianglelengthfinder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -10,47 +11,90 @@ import java.text.DecimalFormat;
 
 public class IsocelesDataActivity extends AppCompatActivity {
     static int chooser = 0;
+    static int checker= 0;
+    CheckBox checkBoxHeight, checkBoxBase, checkBoxAngle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_isoceles_data);
+
+        checkBoxHeight = (CheckBox) findViewById(R.id.checkBoxHeight);
+        checkBoxBase = (CheckBox) findViewById(R.id.checkBoxBase);
+        checkBoxAngle = (CheckBox) findViewById(R.id.checkBoxAngle);
+
         Bundle extras = getIntent().getExtras();
 
         String key = extras.getString("key");
         if (key.equals("BFI")) {
-            TextView legText = (TextView) findViewById(R.id.isoFirstText);
-            legText.setText("Leg:");
-            TextView heightText = (TextView) findViewById(R.id.isoSecondText);
-            heightText.setText("Height:");
-            TextView angleText = (TextView) findViewById(R.id.isoThirdText);
-            angleText.setText("Angle of Leg:");
+           checkBoxHeight.setText("Leg:");
+           checkBoxBase.setText("Height:");
+            checkBoxAngle.setText("Angle of Leg:");
             chooser = 1;
             //The key argument here must match that used in the other activity
         }
 
         if (key.equals("HFI")) {
-            TextView legText = (TextView) findViewById(R.id.isoFirstText);
-            legText.setText("Leg:");
-            TextView baseText = (TextView) findViewById(R.id.isoSecondText);
-            baseText.setText("Base:");
-            EditText editText =(EditText) findViewById(R.id.isoThirdData);
+            checkBoxHeight.setVisibility(View.GONE);
+            checkBoxBase.setVisibility(View.GONE);
+            EditText editText = (EditText) findViewById(R.id.isoThirdData);
             editText.setVisibility(View.GONE);
+            checkBoxAngle.setVisibility(View.GONE);
+
+            EditText txtOne = (EditText) findViewById(R.id.isoFirstData);
+            txtOne.setVisibility(View.VISIBLE);
+            EditText txtTwo = (EditText) findViewById(R.id.isoSecondData);
+            txtTwo.setVisibility(View.VISIBLE);
+
+            TextView legText = (TextView) findViewById(R.id.textViewLeg);
+            legText.setText("Leg:");
+            legText.setVisibility(View.VISIBLE);
+            TextView baseText = (TextView) findViewById(R.id.textViewBase);
+            baseText.setText("Base:");
+           baseText.setVisibility(View.VISIBLE);
             chooser = 2;
 
             //The key argument here must match that used in the other activity
         }
 
         if (key.equals("EFI")) {
-            TextView heightText = (TextView) findViewById(R.id.isoFirstText);
-            heightText.setText("Height:");
-            TextView baseText = (TextView) findViewById(R.id.isoSecondText);
-            baseText.setText("Base:");
-            TextView angleText = (TextView) findViewById(R.id.isoThirdText);
-            angleText.setText("Angle of Leg:");
+
+            checkBoxHeight.setText("Height:");
+            checkBoxBase.setText("Base:");
+            checkBoxAngle.setText("Angle of Leg:");
             chooser = 3;
             //The key argument here must match that used in the other activity
         }
     }
+    public void checkOne(View view){
+        if(!checkBoxHeight.isChecked()){
+            EditText txtOne = (EditText) findViewById(R.id.isoFirstData);
+            txtOne.setVisibility(View.GONE);
+        }
+        if (!checkBoxBase.isChecked()){
+            EditText txtTwo = (EditText) findViewById(R.id.isoSecondData);
+            txtTwo.setVisibility(View.GONE);
+        }
+        if (!checkBoxAngle.isChecked()){
+            EditText txtThree = (EditText) findViewById(R.id.isoThirdData);
+            txtThree.setVisibility(View.GONE);
+        }
+        if(checkBoxHeight.isChecked()){
+            EditText txtOne = (EditText) findViewById(R.id.isoFirstData);
+            txtOne.setVisibility(View.VISIBLE);
+        }
+        if (checkBoxBase.isChecked()){
+            EditText txtTwo = (EditText) findViewById(R.id.isoSecondData);
+            txtTwo.setVisibility(View.VISIBLE);
+        }
+        if (checkBoxAngle.isChecked()){
+            EditText txtThree = (EditText) findViewById(R.id.isoThirdData);
+            txtThree.setVisibility(View.VISIBLE);
+        }
+    }
+
+
 
     public void sendMessage(View view) {
         switch (view.getId()) {
@@ -80,6 +124,8 @@ public class IsocelesDataActivity extends AppCompatActivity {
                 }
 
                 if(chooser == 2 ){
+                    TextView heightDisplay = (TextView)findViewById(R.id.lengthDisplay);
+                    heightDisplay.setText("Height Size");
                     Double height = Math.sqrt(Math.pow(dataOne, 2) - Math.pow((dataTwo/2), 2));
                     TextView textViewResult = (TextView) findViewById(R.id.isoResultData);
                     DecimalFormat df = new DecimalFormat("#.####");
@@ -109,4 +155,7 @@ public class IsocelesDataActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 }
